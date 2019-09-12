@@ -6,7 +6,8 @@ In this project, we perform the following tasks:
 3. enumerate all directed paths between two vertices for a given DAG.
 4. Generate data based on the graph in the following fashion:
    - Any variable without any parent are random variable following Gaussian distribution with mean 0 standard deviation of 1.
-   - any variable with parents are the sum of their parents plus a Gaussian noise term with mean 0 and standard deviation of 1. generate 2000 random datasets
+   - any variable with parents are the sum of their parents plus a Gaussian noise term with mean 0 and standard deviation of 1. 
+   - generate 2000 random datasets
 5. Feature selection.
    - Target variable for prediction: randomly pick a variable that have more than one neighbor as the target of prediction.
    - Features: all other variables that are not the target are potential predictors/features.
