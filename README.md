@@ -1,4 +1,4 @@
- ## About the Directed acyclic graph(DAG) 
+ ## Directed acyclic graph(DAG) 
 Directed acyclic graph(DAG) is graph way to describe Bayes network(or belief network, decision network) in which a set of variables and their conditional dependencies is shown.  DAG displays assumptions about the relationship between variables (often called nodes in the context of graphs) and are good at expressing causal generative models.  The basic definition of DAG can be found [here](https://en.wikipedia.org/wiki/Directed_acyclic_graph). 
 
 ## What to do
