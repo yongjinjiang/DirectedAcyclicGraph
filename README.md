@@ -34,6 +34,7 @@ In this project, we perform the following tasks:
 ![alt text][logo]
 
 [logo]: https://github.com/yongjinjiang/DirectedAcyclicGraph/blob/master/DAG1.png "Logo Title Text"
+![foo]( https://github.com/yongjinjiang/DirectedAcyclicGraph/blob/master/DAG1.png  "title")
    
 
    
