@@ -30,11 +30,12 @@ In this project, we perform the following tasks:
      to get the main feature nodes for each target node. Those feature nodes are efficienct to determine the target node in the sense that the R^2 score is high from the resultant model. They are also robust for a given graph in that they won't change with respect to different random realization of dataset. These rules has been succesfully tested for general target nodes for 100 randomly generated graph with 20 nodes and 20 directed edges.  
      
 ## Theoretical understanding:
-These rules can be theoretically understood by [D-separation] of https://www.youtube.com/watch?v=yDs_q6jKHb0&t=112s Baysian network. The features chosen by the rules actually forms a set called "Markov blanket" of the target node. This set sheilds the target from outside world, i,e., once the features in the set is set. It will fully determines the random distribution of the target.  Other features outside the markov blanket would be conditionally independent of the target. 
+The features chosen by the rules actually forms a set called "Markov blanket" of the target node. This set sheilds the target from outside world, i,e., once the features in the set is set. It will fully determines the random distribution of the target.  Other features outside the markov blanket would be conditionally independent of the target. The usual definition of Markov blanket for a node  is the set of nodes composed of A's parents, A's children, and A's children's other parents. This is described by S1+S2 on above. 
+
+There are some exceptions. In some cases, a child or parent of the target can also be parent of other children. This caused some relation confusion. Such confusion can lead to modifications(see rules 3 and 4). For example, in the graph DAG1, for target=17, the choosen set of features=[2,3,8,15]. It's noteworthy that 10 is not chosen.
 
 
-
-The Markov blanket for a node {\displaystyle A}A in a Bayesian network, denoted here by {\displaystyle \operatorname {MB} (A)}{\displaystyle \operatorname {MB} (A)}, is the set of nodes composed of {\displaystyle A}A's parents, {\displaystyle A}A's children, and {\displaystyle A}A's children's other parents.
+This modification can be theoretically understood by [D-separation](https://www.youtube.com/watch?v=yDs_q6jKHb0&t=112s) of Baysian network. Look at the three nodes, 17--10--3, which formed a causal chain. If 10 is chosen, then 17 and 3 would become conditionally independent, which is undesirable. At first glance, it seems strange that 15 is selected while 10 is discarded. However, let look at 17--10--15, which forms a V-strucure, or a common effect structure. It is known that if the central effect node 10 and its descendants are all not selected, then 15 and 17 would be independent.  However, 3 is selcted and it's the child of 10. So, 15 and 17 is correlated. So, in this way, the discard of 10 can be understood.  
 
    
 
