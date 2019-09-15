@@ -18,7 +18,7 @@ In this project, we perform the following tasks:
    - Performance metric: use your favorite metric(s)
    - Report: what features are selected by the feature selector?
    
-## Main results:
+## Main approaches&results:
  1.  Graphviz is used to visualize the DAG graph.
  2.  LassoCV is used to generate the lieanear regression model. SelectFromModel is used to select the dominant features.
  3.  By analysis on our numerical data, we reached the following rules: 
