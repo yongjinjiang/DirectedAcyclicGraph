@@ -31,7 +31,9 @@ In this project, we perform the following tasks:
      
 ## Theoretical understanding:
        - Shown here is a typical DAG graph:
-<img src="./DAG1.png" width="600" height="400">
+![alt text][logo]
+
+[logo]: https://github.com/yongjinjiang/DirectedAcyclicGraph/blob/master/DAG1.png "Logo Title Text"
    
 
    
