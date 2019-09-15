@@ -26,6 +26,7 @@ In this project, we perform the following tasks:
      2. For all the children, combine all their parents into a collection (except target itself), call it S2.
      3. Get rid of those elements in S1 that have odd number of children in the children set of target.
      4. Combine the remaining set in 3 with S2.
+     
      to get the main feature nodes for each target node. Those feature nodes are efficienct to determine the target node in the sense that the R^2 score is high from the resultant model. They are also robust for a given graph and won't change with respect to different random realization of dataset. These rules has been succesfully  tested for general target nodes for 100 randomly generated graph with 20 nodes and 20 directed edges.  
    
 
