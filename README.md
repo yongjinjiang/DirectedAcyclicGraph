@@ -1,5 +1,5 @@
  ## About the Directed acyclic graph(DAG) 
-Bayes network, belief network, decision network, Bayes model or probabilistic directed acyclic graphical model is a probabilistic graphical model that represents a set of variables and their conditional dependencies via a directed acyclic graph(DAG).  DAG displays assumptions about the relationship between variables (often called nodes in the context of graphs). DAGs are good at expressing causal generative models.  The basic definition of DAG can be found [here](https://en.wikipedia.org/wiki/Directed_acyclic_graph). 
+Directed acyclic graph(DAG) is graph way to describe Bayes network(or belief network, decision network) in which a set of variables and their conditional dependencies is shown.  DAG displays assumptions about the relationship between variables (often called nodes in the context of graphs) and are good at expressing causal generative models.  The basic definition of DAG can be found [here](https://en.wikipedia.org/wiki/Directed_acyclic_graph). 
 
 ## What to do
 In this project, we perform the following tasks:
@@ -30,12 +30,11 @@ In this project, we perform the following tasks:
      to get the main feature nodes for each target node. Those feature nodes are efficienct to determine the target node in the sense that the R^2 score is high from the resultant model. They are also robust for a given graph in that they won't change with respect to different random realization of dataset. These rules has been succesfully tested for general target nodes for 100 randomly generated graph with 20 nodes and 20 directed edges.  
      
 ## Theoretical understanding:
-       - Shown here is a typical DAG graph:
-![alt text][logo]
+These rules can be theoretically understood by [D-separation] of https://www.youtube.com/watch?v=yDs_q6jKHb0&t=112s Baysian network. The features chosen by the rules actually forms a set called "Markov blanket" of the target node. This set sheilds the target from outside world, i,e., once the features in the set is set. It will fully determines the random distribution of the target.  Other features outside the markov blanket would be conditionally independent of the target. 
 
-[logo]: https://github.com/yongjinjiang/DirectedAcyclicGraph/blob/master/DAG1.png "Logo Title Text"
-![foo]( https://github.com/yongjinjiang/DirectedAcyclicGraph/blob/master/DAG1.png  "title")
-   
+
+
+The Markov blanket for a node {\displaystyle A}A in a Bayesian network, denoted here by {\displaystyle \operatorname {MB} (A)}{\displaystyle \operatorname {MB} (A)}, is the set of nodes composed of {\displaystyle A}A's parents, {\displaystyle A}A's children, and {\displaystyle A}A's children's other parents.
 
    
 
