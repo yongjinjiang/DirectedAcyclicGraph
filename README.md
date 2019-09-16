@@ -31,17 +31,15 @@ to get the main feature nodes for each target node. Those feature nodes are effi
      
 As an example, for the following graph,
      <img src="./DAG1.png " width="900" height="400">
-if we pick 19th node as targe, the selected nodes are: [0, 7, 8, 9]; pick 9th node as target, the selected nodes are: [0, 7, 8, 19]; pick 0th node as target,  the selected nodes are: [1, 7, 8, 9, 18, 19].  
-
-these are pure S1+S2 case defined by firs ttwo rules. Furthermore, if we pick 17th node as the target, the selected feature nodes are: [2, 3, 8, 15]. Note 10th node is avoided, though  it is a child of 17th node. Such cases are described by the last two rules described on above. 
+if we pick 19th node as targe, the selected nodes are: [0, 7, 8, 9]; pick 9th node as target, the selected nodes are: [0, 7, 8, 19]; pick 0th node as target,  the selected nodes are: [1, 7, 8, 9, 18, 19].  these are pure S1+S2 case defined by first two rules. Furthermore, if we pick 17th node as the target, the selected feature nodes are: [2, 3, 8, 15]. Note 10th node is avoided, even though it is a child of 17th node. Such cases are described by the last two rules described on above. 
      
 ## Theoretical understanding:
-The features chosen by the rules actually forms a set called "Markov blanket" of the target node. This set sheilds the target from outside world, i,e., once the features in the set is set, it will fully determines the random distribution of the target.  Other features outside the markov blanket would be conditionally independent of the target. The usual definition of Markov blanket for a node  is the set of nodes composed of A's parents, A's children, and A's children's other parents. This is described by S1+S2 on above. 
+The features chosen by the rules actually forms a set called "Markov blanket" of the target node. This set sheilds the target from outside world, i,e., once the features in the set is set, it will fully determines the random distribution of the target.  Other features outside the markov blanket would be conditionally independent of the target. The usual definition of Markov blanket for a node A is the set of nodes composed of A's parents, A's children, and A's children's other parents. This is described by S1+S2 on above. T
 
 There are some exceptions. In some cases, a child or parent of the target can at the same time be parent of other children. This will cause some relation confusion. Such confusion can lead to rule modifications(hence rules 3 and 4). For example, in the graph DAG1, for target=17, the choosen set of features=[2,3,8,15]. It's noteworthy that 10 is not chosen.
 
 
-This modification can be theoretically understood by [D-separation](https://www.youtube.com/watch?v=yDs_q6jKHb0&t=112s) of Baysian network. Look at the three nodes, 17--10--3, which formed a causal chain. If 10 is chosen, then 17 and 3 would become conditionally independent, which is undesirable. At first glance, it seems strange that 15 is selected while 10 is discarded. However, let look at 17--10--15, which forms a V-strucure, or a common effect structure. It is known that if the central effect node 10 and its descendants are all not selected, then 15 and 17 would be independent.  However, 3 is selcted and it's the child of 10. So, 15 and 17 is correlated. So, in this way, the discard of 10 can be understood.  
+This modification can be theoretically understood by [D-separation](https://www.youtube.com/watch?v=yDs_q6jKHb0&t=112s) of Baysian network. Look at the three nodes, 17--10--3, which formed a causal chain. If 10 is chosen, then 17 and 3 would become conditionally independent, which is undesirable. At first glance, it seems strange that 15 is selected while 10 is discarded. However, let look at 17--10--15, which forms a V-strucure, or a common effect structure. It is known that if the central effect node 10 and its descendants are all not selected, then 15 and 17 would be independent.  However, 3 is selected and it's the child of 10. So, 15 and 17 is correlated. So, in this way, the discard of 10 can be understood.  
 
 
 
