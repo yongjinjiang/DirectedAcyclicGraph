@@ -31,6 +31,9 @@ to get the main feature nodes for each target node. Those feature nodes are effi
      
 As an example, for the following graph,
      <img src="./DAG1.png " width="900" height="400">
+if we pick 19th node as targe, the selected nodes are: [0, 7, 8, 9]; pick 9th node as target, the selected nodes are: [0, 7, 8, 19]; pick 0th node as target,  the selected nodes are: [1, 7, 8, 9, 18, 19].  
+
+these are pure S1+S2 case defined by firs ttwo rules. Furthermore, if we pick 17th node as the target, the selected feature nodes are: [2, 3, 8, 15]. Note 10th node is avoided, though  it is a child of 17th node. Such cases are described by the last two rules described on above. 
      
 ## Theoretical understanding:
 The features chosen by the rules actually forms a set called "Markov blanket" of the target node. This set sheilds the target from outside world, i,e., once the features in the set is set, it will fully determines the random distribution of the target.  Other features outside the markov blanket would be conditionally independent of the target. The usual definition of Markov blanket for a node  is the set of nodes composed of A's parents, A's children, and A's children's other parents. This is described by S1+S2 on above. 
